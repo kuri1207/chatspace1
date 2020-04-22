@@ -32,10 +32,9 @@ Things you may want to cover:
 |username|string|null: false|
 
 ### Association
-
-- has_many :groups
-- has_many :tweets
+- has_many :groups, through :groups_users
 - has_many :groups_users
+- has_many :tweets
 
 
 ## groupsテーブル
@@ -46,9 +45,9 @@ Things you may want to cover:
 |menber|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :groups
-- has_many :tweets
+- has_many :users, through :groups_users
 - has_many :groups_users
+- has_many :tweets
 
 
 ## groups_usersテーブル
@@ -59,8 +58,8 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+- belongs_to :groups
+- belongs_to :users
 
 
 ## tweetsテーブル
@@ -72,5 +71,5 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+- belongs_to :groups
+- belongs_to :users
