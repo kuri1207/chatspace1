@@ -1,0 +1,27 @@
+.body
+  .chat__main
+    .main__header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group test
+        %ul.main-header__left-box__member-list
+          Member：
+          %li.main-header__left-box__member-list__member masa
+      %a{:href => "/groups/27821/edit"}
+        .main-header__edit-btn Edit
+
+    .messages
+      .message{"data-message_id" => "41244"}
+        .message__upper-info
+          %p.message__upper-info__talker ku
+          %p.message__upper-info__date 2020/04/28(Tue) 11:12:57
+        %p.message__text aa
+
+    .form
+      %form.new_message
+        .input-box
+          %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+          %label.input-box__image{:for => "message_image"}
+            = icon('fas', 'image')
+            %input.input-box__image__file{type: "file", :name => "message[image]", :type => "file"}
+        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+
