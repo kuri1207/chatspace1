@@ -6,7 +6,7 @@
         %ul.main-header__left-box__member-list
           Member：
           %li.main-header__left-box__member-list__member masa
-      %a{:href => "/groups/27821/edit"}
+      = link_to "/groups/27821/edit" do
         .main-header__edit-btn Edit
 
     .messages
@@ -19,8 +19,8 @@
     .form
       %form.new_message
         .input-box
-          %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-          %label.input-box__image{:for => "message_image"}
+          %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
+          %label.input-box__image{for: "message_image"}
             = icon('fas', 'image')
             %input.input-box__image__file{type: "file", :name => "message[image]", :type => "file"}
         %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/

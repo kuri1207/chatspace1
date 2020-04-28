@@ -5,11 +5,11 @@
         %p.side-header__box__user-name 栗本直幸
         %ul.side-header__box__menu
           %li.side-header__box__menu__new-group
-            %a{ href: "https://chat-space-sample.herokuapp.com/groups/new"}
-            %i.fa.fa-edit
+            = link_to "https://chat-space-sample.herokuapp.com/groups/new" do
+              %i.fa.fa-edit
           %li.side-header__box__menu__edit-user
-            %a{ href: "/users/21936/edit"}
-            %i.fa.fa-cog
+            = link_to "/users/21936/edit" do
+              %i.fa.fa-cog
     .groups
       %p.group__group-name teckchamp
       %p.group__latest-message まだメッセージがありません
