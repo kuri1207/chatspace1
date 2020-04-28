@@ -1,0 +1,15 @@
+.body
+  .chat__side
+    .side__header
+      .side__header__box
+        %p.side-header__box__user-name 栗本直幸
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__new-group
+            = link_to "https://chat-space-sample.herokuapp.com/groups/new" do
+              %i.fa.fa-edit
+          %li.side-header__box__menu__edit-user
+            = link_to "/users/21936/edit" do
+              %i.fa.fa-cog
+    .groups
+      %p.group__group-name teckchamp
+      %p.group__latest-message まだメッセージがありません
