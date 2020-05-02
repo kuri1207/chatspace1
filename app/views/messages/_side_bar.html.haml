@@ -6,13 +6,18 @@
           = current_user.name
         %ul.side__header__box__menu
           %li.side__header__box__menu__new-group
-            = link_to "https://chat-space-sample.herokuapp.com/groups/new" do
+            = link_to new_group_path do
               %i.fa.fa-edit
           %li.side__header__box__menu__edit-user
-            = link_to edit_user_path(current_user) do
+            = link_to edit_user_path(current_user.id) do
               = icon('fas', 'cog', class: 'icon')
             -# = link_to "/users/21936/edit" do
             -#   %i.fa.fa-cog
     .groups
-      %p.group__group-name teckchamp
-      %p.group__latest-message まだメッセージがありません
+      - current_user.groups.each do |group|
+        .group
+          = link_to '#' do
+            %p.group__group-name
+              = group.name
+            %p.group__latest-message
+              メッセージはまだありません
