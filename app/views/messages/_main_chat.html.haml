@@ -2,26 +2,25 @@
   .chat__main
     .main__header
       .main__header__left-box
-        %h2.main__header__left-box__current-group test
+        .main__header__left-box__current-group
+        %h2 #{@group.name}
         %ul.main__header__left-box__member-list
           Member：
-          %li.main__header__left-box__member-list__member masa
-      = link_to "/groups/27821/edit" do
+          - @group.users.each do |user|
+            %li.main__header__left-box__member-list__member #{user.name}
+      = link_to edit_group_path(@group) do
         .main__header__edit-btn Edit
 
     .messages
-      .message{"data-message_id" => "41244"}
-        .message__upper-info
-          %p.message__upper-info__talker ku
-          %p.message__upper-info__date 2020/04/28(Tue) 11:12:57
-        %p.message__text aa
+      = render @messages
 
     .form
-      %form.new_message
+      = form_for [@group, @message] do |f|
         .input-box
-          %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
-          %label.input-box__image{for: "message_image"}
-            = icon('fas', 'image')
-            %input.input-box__image__file{type: "file", name: "message[image]", id: "message_image"}
-        %input.submit-btn{"data-disable-with" => "Send", name: "commit", type: "submit", value: "Send"}/
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+          -# .form__mask
+          = f.label :image, class: 'input-box__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'input-box__image__file'
+        = f.submit 'Send', class: 'submit-btn'
 
