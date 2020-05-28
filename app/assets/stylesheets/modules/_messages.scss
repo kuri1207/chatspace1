@@ -104,9 +104,6 @@
   padding: 46px 40px;
   background-color: #fafafa;
   overflow: scroll;
-}
-
-.message {
   padding-bottom: 40px;
 }
 
@@ -120,7 +117,7 @@
   margin-left: 10px;
 }
 
-.message__upper-info {
+.up .message__upper-info {
   margin-bottom: 10px;
 
   &__talker {
